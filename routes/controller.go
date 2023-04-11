@@ -3,8 +3,8 @@ package routes
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Ruchanov/Golang_2023/assignment3/models"
-	"github.com/Ruchanov/Golang_2023/assignment3/repositories"
+	"github.com/Ruchanov/assignment3_Golang_bookstore/models"
+	"github.com/Ruchanov/assignment3_Golang_bookstore/repositories"
 	"github.com/gorilla/mux"
 	"gorm.io/gorm"
 	"net/http"

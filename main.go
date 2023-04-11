@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/Ruchanov/Golang_2023/assignment3/routes"
-	"github.com/Ruchanov/Golang_2023/assignment3/utils"
+	"github.com/Ruchanov/assignment3_Golang_bookstore/routes"
+	"github.com/Ruchanov/assignment3_Golang_bookstore/utils"
 	"log"
 	"net/http"
 )

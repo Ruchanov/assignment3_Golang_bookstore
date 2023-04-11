@@ -1,21 +1,46 @@
+#version: "3.9"
+#services:
+#  db:
+#    image: postgres:15.2-alpine
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=Ayef1407_
+#      - POSTGRES_DB=bookstore
+#    ports:
+#      - "5432:5432"
+#  app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - db
+#    entrypoint: ["wait-for.sh", "postgres:5432", "--"]
+#    command: ["/app/main"]
+#
 version: "3.9"
 services:
-  postgres:
-    image: postgres:15.2-alpine
-    environment:
-      - POSTGRES_USER= postgres
-      - POSTGRES_PASSWORD= Ayef1407_
-      - POSTGRES_DB=db
-    ports:
-      - 5432:5432
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
-    entrypoint: ["/app/wait-for.sh", "postgres:5432", "--"]
-    command: ["/app/main"]
-
+      - db
+    environment:
+      - PGHOST=localhost
+      - PGPORT=5432
+      - PGUSER=postgres
+      - PGPASSWORD=Ayef1407_
+      - PGDATABASE=bookstore
+    restart: always
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Ayef1407_
+      - POSTGRES_DB=bookstore
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:

@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"database/sql"
-	"github.com/Ruchanov/Golang_2023/assignment3/models"
+	"github.com/Ruchanov/assignment3_Golang_bookstore/models"
 	"gorm.io/gorm"
 )
 
